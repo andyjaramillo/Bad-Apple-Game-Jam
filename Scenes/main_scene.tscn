@@ -27,12 +27,12 @@ func _process(delta):
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_mtsre")
 
+[node name="Hud" parent="." instance=ExtResource("3_tshxg")]
+
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 446.0
 offset_bottom = 449.0
 texture = ExtResource("1_mmvy7")
-
-[node name="Hud" parent="." instance=ExtResource("3_tshxg")]
 
 [node name="Player" parent="." instance=ExtResource("2_2pvag")]
 position = Vector2(216, 429)

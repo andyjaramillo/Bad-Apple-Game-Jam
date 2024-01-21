@@ -1,19 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://b56tgdwjo11b7"]
+[gd_scene load_steps=8 format=3 uid="uid://b56tgdwjo11b7"]
 
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_jnjal"]
+[ext_resource type="Texture2D" uid="uid://crrpja613eh5o" path="res://Assets/5.png" id="2_7qtgo"]
+[ext_resource type="Texture2D" uid="uid://b3b3w4ciiwoiq" path="res://Assets/countdown.png" id="3_tjtrb"]
+[ext_resource type="Texture2D" uid="uid://wocwsenkrfqh" path="res://Assets/3.png" id="4_jdhye"]
+[ext_resource type="Texture2D" uid="uid://cxhf2s3ql33ho" path="res://Assets/2.png" id="5_l6uvv"]
+[ext_resource type="Texture2D" uid="uid://dfjtc6easg0ye" path="res://Assets/1.png" id="6_nu41v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8wf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7qtgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tjtrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jdhye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l6uvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nu41v")
+}],
+"loop": true,
+"name": &"countdown",
+"speed": 1.0
+}]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_jnjal")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 155.0
-offset_top = 190.0
-offset_right = 225.0
-offset_bottom = 213.0
-text = "Start in 3"
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(212, 208)
+scale = Vector2(3.40625, 3.4375)
+sprite_frames = SubResource("SpriteFrames_v8wf3")
+animation = &"countdown"
+frame_progress = 0.715463
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
