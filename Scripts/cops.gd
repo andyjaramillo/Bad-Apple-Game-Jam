@@ -31,3 +31,5 @@ func _on_area_entered(area):
 	if(area.name == "Player" or area.name == "LineOfDeath"):
 		queue_free()
 	pass # Replace with function body.
+
+

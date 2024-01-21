@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcevv5mdm0hva"
+path="res://.godot/imported/Car Horn 1.mp3-04b4c1a8d3fe08e6098736710ba066aa.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/Car Horn 1.mp3"
+dest_files=["res://.godot/imported/Car Horn 1.mp3-04b4c1a8d3fe08e6098736710ba066aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

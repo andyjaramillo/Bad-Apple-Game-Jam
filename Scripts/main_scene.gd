@@ -92,22 +92,47 @@ func _on_timer_timeout(time_served, timer, lane_position):
 	
 	
 
-func game_over():
+func game_over(isHit):
 	get_tree().call_group("cars", "queue_free")
-	get_tree().change_scene_to_file("res://Scenes/end_scene.tscn")	
+	if(isHit):
+		get_tree().change_scene_to_file("res://Scenes/end_scene.tscn")	
+	else:
+		get_tree().change_scene_to_file("res://Scenes/win_scene.tscn")	
+		
 
 
 func _on_player_hit():
-	game_over()
+	game_over(true)
 	pass # Replace with function body.
 
 
 func _on_area_2d_area_entered(area):
 	if(area.name == "Player"):
-		game_over()
+		game_over(false)
 	pass # Replace with function body.
 
 
 func _on_hud_can_move():
 	$Player.can_move()
 	pass # Replace with function body.
+
+
+func _on_honk_timer_timeout():
+	
+	var honk_type = randi() % 3
+	if(honk_type == 0):
+		$Honk1.play()
+		await get_tree().create_timer(1).timeout
+		$Honk1.stop()
+		pass
+	elif(honk_type == 1):
+		$Honk2.play()
+		await get_tree().create_timer(1).timeout
+		$Honk2.stop()
+		pass
+	elif(honk_type == 2):
+		$Honk3.play()
+		await get_tree().create_timer(1).timeout
+		$Honk3.stop()
+		pass
+	$HonkTimer.start()

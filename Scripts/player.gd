@@ -39,6 +39,7 @@ func _on_area_entered(area):
 	print("hit " + area.name)
 	can_move_player=false
 	$AnimatedSprite2D.play("explosion")
+	$AudioStreamPlayer2D.play()
 	await get_tree().create_timer(1).timeout
 	emit_signal("hit")
 

@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsfvybjvnpfsr"]
+[gd_scene load_steps=10 format=3 uid="uid://dsfvybjvnpfsr"]
 
 [ext_resource type="Texture2D" uid="uid://cy3qedixe08eh" path="res://Assets/Background (1).png" id="1_mmvy7"]
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_mtsre"]
 [ext_resource type="PackedScene" uid="uid://djpmhhq632wka" path="res://Scenes/player.tscn" id="2_2pvag"]
 [ext_resource type="PackedScene" uid="uid://b56tgdwjo11b7" path="res://Scenes/HUD.tscn" id="3_tshxg"]
 [ext_resource type="PackedScene" uid="uid://bh2twx8auwcd4" path="res://Scenes/line_of_death.tscn" id="4_sjnvc"]
+[ext_resource type="AudioStream" uid="uid://bcevv5mdm0hva" path="res://Assets/audio/Car Horn 1.mp3" id="6_etv22"]
+[ext_resource type="AudioStream" uid="uid://dcic4uv3we43g" path="res://Assets/audio/Car Horn 2.mp3" id="7_8tpn1"]
+[ext_resource type="AudioStream" uid="uid://bf73ot6p3iiqi" path="res://Assets/audio/Car Horn 3.mp3" id="8_7jyu7"]
 
 [sub_resource type="GDScript" id="GDScript_na425"]
 script/source = "extends Camera2D
@@ -37,7 +40,7 @@ position = Vector2(216, 429)
 position = Vector2(2, 1)
 zoom = Vector2(3, 3)
 limit_left = 0
-limit_top = 100
+limit_top = 0
 limit_right = 448
 limit_bottom = 448
 editor_draw_limits = true
@@ -51,6 +54,20 @@ position = Vector2(-1, 80)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(151, -3, 0, -1, 2, 7, 448, 5, 449, -4)
 
+[node name="Honk1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_etv22")
+
+[node name="Honk2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8tpn1")
+
+[node name="Honk3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7jyu7")
+
+[node name="HonkTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="can_move" from="Hud" to="." method="_on_hud_can_move"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="HonkTimer" to="." method="_on_honk_timer_timeout"]

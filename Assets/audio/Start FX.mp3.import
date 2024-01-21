@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm4ge4mbe25s2"
+path="res://.godot/imported/Start FX.mp3-6e2c4681ec029175d46c02601640c702.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/Start FX.mp3"
+dest_files=["res://.godot/imported/Start FX.mp3-6e2c4681ec029175d46c02601640c702.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgtritxe5s0qb"]
+[gd_scene load_steps=11 format=3 uid="uid://dgtritxe5s0qb"]
 
 [ext_resource type="PackedScene" uid="uid://tecijwso8p0" path="res://Scenes/cop_bot/cops.tscn" id="1_qbeh6"]
 [ext_resource type="Script" path="res://Scripts/car_1.gd" id="2_no7dh"]
 [ext_resource type="Texture2D" uid="uid://c0qgdcwv8l1u8" path="res://Assets/Car1.png" id="3_so2yx"]
+[ext_resource type="AudioStream" uid="uid://bcevv5mdm0hva" path="res://Assets/audio/Car Horn 1.mp3" id="4_0dn5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihh34"]
 size = Vector2(59, 28)
@@ -59,3 +60,6 @@ shape = SubResource("RectangleShape2D_ihh34")
 position = Vector2(2, -2)
 sprite_frames = SubResource("SpriteFrames_vd1sx")
 animation = &"right"
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_0dn5b")

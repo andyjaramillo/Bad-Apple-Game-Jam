@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctbfl2j30ahsr"]
+
+[ext_resource type="Script" path="res://Scripts/win_scene.gd" id="1_80d41"]
+[ext_resource type="Texture2D" uid="uid://cmuk8sdtw7dcl" path="res://Assets/BadAppleWinScreen.jpg" id="2_vd8qw"]
+[ext_resource type="AudioStream" uid="uid://cc5xr35ykjim6" path="res://Assets/audio/Win FX.mp3" id="3_unync"]
+
+[node name="WinScene" type="CanvasLayer"]
+script = ExtResource("1_80d41")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 448.0
+offset_bottom = 448.0
+texture = ExtResource("2_vd8qw")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 39.0
+offset_top = 308.0
+offset_right = 150.0
+offset_bottom = 347.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_unync")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
