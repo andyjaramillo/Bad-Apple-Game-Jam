@@ -31,6 +31,7 @@ var lane_positions = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PlayMusic.play()
 	for i in lane_positions.keys():
 		random_generation()
 		var current_car_instance = current_car_matching()

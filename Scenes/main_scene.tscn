@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsfvybjvnpfsr"]
+[gd_scene load_steps=11 format=3 uid="uid://dsfvybjvnpfsr"]
 
 [ext_resource type="Texture2D" uid="uid://cy3qedixe08eh" path="res://Assets/Background (1).png" id="1_mmvy7"]
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_mtsre"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bcevv5mdm0hva" path="res://Assets/audio/Car Horn 1.mp3" id="6_etv22"]
 [ext_resource type="AudioStream" uid="uid://dcic4uv3we43g" path="res://Assets/audio/Car Horn 2.mp3" id="7_8tpn1"]
 [ext_resource type="AudioStream" uid="uid://bf73ot6p3iiqi" path="res://Assets/audio/Car Horn 3.mp3" id="8_7jyu7"]
+[ext_resource type="AudioStream" uid="uid://vst6s6gbbyb1" path="res://Assets/audio/Play scene music.wav" id="9_ak3xm"]
 
 [sub_resource type="GDScript" id="GDScript_na425"]
 script/source = "extends Camera2D
@@ -66,6 +67,9 @@ stream = ExtResource("8_7jyu7")
 [node name="HonkTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="PlayMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ak3xm")
 
 [connection signal="can_move" from="Hud" to="." method="_on_hud_can_move"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
