@@ -36,7 +36,7 @@ func _ready():
 		var current_car_instance = current_car_matching()
 		var lane_position = lane_positions[i]
 		current_car_instance.position.y = lane_position
-		var timer_length = randi() % 10 + 2
+		var timer_length = randi() % 12 + 3
 		var timer = Timer.new()
  
 		# Set the wait time for the timer
@@ -104,8 +104,7 @@ func _on_player_hit():
 
 func _on_area_2d_area_entered(area):
 	if(area.name == "Player"):
-		pass
-	#	game_over()
+		game_over()
 	pass # Replace with function body.
 
 

@@ -36,17 +36,11 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	print("hit" + area.name)
-	if(area.name == "car_1" or area.name == "car_2" or area.name == "car_3" or area.name == "car_4"):
-		print("hit" + area.name)
-		#emit_signal("hit")
-		#$AnimatedSprite2D.play("explosion")
-		#await get_tree().create_timer(1)
-		#$AnimatedSprite2D.stop()
-		#hide()
-	elif(area.name == "LineOfDeath"):
-		emit_signal("hit")
-	pass # Replace with function body.
+	print("hit " + area.name)
+	can_move_player=false
+	$AnimatedSprite2D.play("explosion")
+	await get_tree().create_timer(1).timeout
+	emit_signal("hit")
 
 
 func can_move():

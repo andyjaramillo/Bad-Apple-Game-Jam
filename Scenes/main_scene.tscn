@@ -17,7 +17,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	align()
 	pass
 "
 
@@ -32,11 +31,16 @@ texture = ExtResource("1_mmvy7")
 [node name="Hud" parent="." instance=ExtResource("3_tshxg")]
 
 [node name="Player" parent="." instance=ExtResource("2_2pvag")]
-position = Vector2(100, 435)
+position = Vector2(216, 429)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(3, 4)
+position = Vector2(2, 1)
 zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 100
+limit_right = 448
+limit_bottom = 448
+editor_draw_limits = true
 script = SubResource("GDScript_na425")
 
 [node name="LineOfDeath" parent="." instance=ExtResource("4_sjnvc")]

@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.text = "Start in " + str(int($Timer.time_left))
+	$Label.text = "Start in " + str(int($Timer.time_left) + 1) 
 	pass
 
 
