@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctvmirconnrqt"]
+
+[ext_resource type="PackedScene" uid="uid://tecijwso8p0" path="res://Scenes/cop_bot/cops.tscn" id="1_dng8v"]
+[ext_resource type="Script" path="res://Scripts/car_1.gd" id="2_djy28"]
+[ext_resource type="Texture2D" uid="uid://crsushvxn5i38" path="res://Assets/Car2.png" id="3_70ojn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu4he"]
+size = Vector2(52, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1oto"]
+atlas = ExtResource("3_70ojn")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj1oy"]
+atlas = ExtResource("3_70ojn")
+region = Rect2(64, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi0tf"]
+atlas = ExtResource("3_70ojn")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5rd5"]
+atlas = ExtResource("3_70ojn")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhj4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1oto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj1oy")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi0tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5rd5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="car_4" instance=ExtResource("1_dng8v")]
+script = ExtResource("2_djy28")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2, 6.5)
+shape = SubResource("RectangleShape2D_wu4he")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_yhj4p")
+animation = &"right"

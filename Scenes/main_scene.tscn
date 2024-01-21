@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsfvybjvnpfsr"]
+
+[ext_resource type="Texture2D" uid="uid://cy3qedixe08eh" path="res://Assets/Background (1).png" id="1_mmvy7"]
+[ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_mtsre"]
+[ext_resource type="PackedScene" uid="uid://djpmhhq632wka" path="res://Scenes/player.tscn" id="2_2pvag"]
+[ext_resource type="PackedScene" uid="uid://b56tgdwjo11b7" path="res://Scenes/HUD.tscn" id="3_tshxg"]
+[ext_resource type="PackedScene" uid="uid://bh2twx8auwcd4" path="res://Scenes/line_of_death.tscn" id="4_sjnvc"]
+
+[sub_resource type="GDScript" id="GDScript_na425"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	align()
+	pass
+"
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_mtsre")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 446.0
+offset_bottom = 449.0
+texture = ExtResource("1_mmvy7")
+
+[node name="Hud" parent="." instance=ExtResource("3_tshxg")]
+
+[node name="Player" parent="." instance=ExtResource("2_2pvag")]
+position = Vector2(100, 435)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(3, 4)
+zoom = Vector2(3, 3)
+script = SubResource("GDScript_na425")
+
+[node name="LineOfDeath" parent="." instance=ExtResource("4_sjnvc")]
+position = Vector2(-1, 80)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(151, -3, 0, -1, 2, 7, 448, 5, 449, -4)
+
+[connection signal="can_move" from="Hud" to="." method="_on_hud_can_move"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh2twx8auwcd4"]
+
+[ext_resource type="Script" path="res://Scripts/line_of_death.gd" id="1_51i33"]
+[ext_resource type="Texture2D" uid="uid://c0sa2048c0kae" path="res://Assets/CopCars.png" id="2_f2l8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ejhw"]
+size = Vector2(442.5, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ota0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f2l8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LineOfDeath" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_51i33")
+
+[node name="LineOfDeath" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LineOfDeath"]
+position = Vector2(222.75, 549)
+shape = SubResource("RectangleShape2D_6ejhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LineOfDeath"]
+position = Vector2(222, 548)
+sprite_frames = SubResource("SpriteFrames_8ota0")

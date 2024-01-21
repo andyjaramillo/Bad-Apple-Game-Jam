@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b56tgdwjo11b7"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_jnjal"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_jnjal")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 155.0
+offset_top = 190.0
+offset_right = 225.0
+offset_bottom = 213.0
+text = "Start in 3"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

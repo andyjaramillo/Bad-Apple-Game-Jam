@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkaudlg54a60w"]
+
+[ext_resource type="Script" path="res://Scripts/end_scene.gd" id="1_td603"]
+[ext_resource type="Texture2D" uid="uid://di02h85nbjjjb" path="res://Assets/BadAppleGameOver.jpg" id="2_ngexu"]
+
+[node name="EndScene" type="CanvasLayer"]
+script = ExtResource("1_td603")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 187.0
+offset_top = 171.0
+offset_right = 293.0
+offset_bottom = 194.0
+text = "GAME OVER"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 447.0
+offset_bottom = 445.0
+texture = ExtResource("2_ngexu")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 38.0
+offset_top = 312.0
+offset_right = 155.0
+offset_bottom = 341.0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://tecijwso8p0"]
+
+[ext_resource type="Script" path="res://Scripts/cops.gd" id="1_p6jv1"]
+
+[node name="Cops" type="Area2D" groups=["cars"]]
+script = ExtResource("1_p6jv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(224.5, 225.5)
+scale = Vector2(22.45, 22.65)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
